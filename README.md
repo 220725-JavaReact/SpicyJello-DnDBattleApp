@@ -1,29 +1,32 @@
 # SpicyJello-DnDBattleApp
-Developed by: Garrett McPHerson, wint, Erick Cilia, Warren Lee
+Developed by:
+- Warren Lee (Team Lead)
+- Erick Cilia
+- Garrett McPherson
+- Wint Kay Thwe Aung
 
-
-Frontend repo link [link]
+Link to front-end repo (Coming soon)
 
 # Description
-DnDBattleApp is a web game where users can face wave of enemies provided by the Dungeons and Dragons api. Users will be able to save their encouners and their take away from each encounter.
+DnDBattleApp is a web game where players can choose from among a selection of budding adventurers to face waves of enemies provided by the [D&D 5e API](https://www.dnd5eapi.co/). Players receive rewards for each playthrough and the playthrough's data is saved.
 
 [Our ERD diagram](https://lucid.app/lucidchart/5266f758-82aa-488f-8012-0fc2a26234d0/edit?page=0_0&invitationId=inv_0ddd24ad-ab88-4c19-8bdb-24cdd58fa4bf#)
 
-[Our trello board](https://trello.com/b/ykP1l8Ny/spicyjello-dndbattleapp)
+[Our Trello board](https://trello.com/b/ykP1l8Ny/spicyjello-dndbattleapp)
 
 ## Features
-- users play a unique set of encourters each playthrough
-- the details of the enounters are saves
-- users gain progression with each counter
-- leader board users can view
-- unlock permanent upgrades
+- Players fight a unique set of encounters each playthrough
+- The data from the encounters are saved
+- Players gain gold for each playthrough based on progress
+- Players can spend gold to purchase permanent upgrades to improve progression on subsequent playthroughs
+- Players can view a global leaderboard
   
 ## Technologies Used
-  - Spring Boot
-  - java 8
-  - lombok
-  - junit
-  - mockito
-  - Spring Data
-  - Spring Securtiy
-  - Spring Web
+- Java 8
+- JUnit
+- Lombok
+- Mockito
+- Spring Boot
+- Spring Data
+- Spring Security
+- Spring Web

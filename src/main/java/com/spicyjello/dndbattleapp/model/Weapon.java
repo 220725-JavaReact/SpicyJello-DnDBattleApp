@@ -1,6 +1,8 @@
 package com.spicyjello.dndbattleapp.model;
 
-import java.util.ArrayList;
+
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -42,6 +44,6 @@ public class Weapon {
 	@Column(name="base_damage", nullable= false)
 	private String baseDamage;
 	
-	/*@ManyToMany(mappedBy="weapons")
-	private ArrayList<User> users;*/
+	@ManyToMany(mappedBy="weapons")
+	private Set<User> users;
 }

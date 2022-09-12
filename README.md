@@ -14,6 +14,8 @@ DnDBattleApp is a web game where players can choose from among a selection of bu
 
 [Our Trello board](https://trello.com/b/ykP1l8Ny/spicyjello-dndbattleapp)
 
+[logic power point](https://revaturetech-my.sharepoint.com/:u:/g/personal/wintkay367_revature_net/Eeoq_0_3PERKiKCzF-5yW78BY0paM9O3yrwWicylKO-0mw?e=ep6K9S)
+
 ## Features
 - Players fight a unique set of encounters each playthrough
 - The data from the encounters are saved

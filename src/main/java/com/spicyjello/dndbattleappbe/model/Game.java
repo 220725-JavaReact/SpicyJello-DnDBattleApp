@@ -1,6 +1,7 @@
-package com.spicyjello.dndbattleapp.model;
+package com.spicyjello.dndbattleappbe.model;
 
-import javax.persistence.Column;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -26,20 +28,14 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public class Game {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private int id;
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
-	
-	@Column(name = "score", nullable = false)
 	private int score;
-	
-	@Column(name = "gold", nullable = false)
 	private int gold;
-	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "game")
+	private Set<Monster> monsters;
 }

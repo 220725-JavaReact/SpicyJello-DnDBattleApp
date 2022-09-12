@@ -1,8 +1,7 @@
-package com.spicyjello.dndbattleapp.model;
+package com.spicyjello.dndbattleappbe.model;
 
 import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -30,35 +29,16 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public class User {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private int id;
-	
-	@Column(name = "name", nullable = false)
 	private String name;
-	
-	@Column(name = "email", nullable = false)
 	private String email;
-	
-	@Column(name = "username", nullable = false)
 	private String username;
-	
-	@Column(name = "password", nullable = false)
 	private String password;
-	
-	@Column(name = "gold", nullable = false)
 	private int gold;
-	
-	@ManyToMany
-	@JoinTable(
-		name = "user_weapons",
-		joinColumns = @JoinColumn(name = "user_id"),
-		inverseJoinColumns = @JoinColumn(name = "weapon_id")
-	)
-	private Set<Weapon> weapons;
-	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+	private Set<Game> games;
 	@ManyToMany
 	@JoinTable(
 		name = "user_upgrades",
@@ -66,8 +46,11 @@ public class User {
 		inverseJoinColumns = @JoinColumn(name = "upgrade_id")
 	)
 	private Set<Upgrade> upgrades;
-	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
-	private Set<Game> games;
-	
+	@ManyToMany
+	@JoinTable(
+		name = "user_weapons",
+		joinColumns = @JoinColumn(name = "user_id"),
+		inverseJoinColumns = @JoinColumn(name = "weapon_id")
+	)
+	private Set<Weapon> weapons;
 }

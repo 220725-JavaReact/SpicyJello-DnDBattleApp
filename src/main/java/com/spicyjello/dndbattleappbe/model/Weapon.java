@@ -1,4 +1,6 @@
-package com.spicyjello.dndbattleapp.model;
+package com.spicyjello.dndbattleappbe.model;
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,30 +18,21 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "upgrades")
+@Table(name = "weapons")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
-public class Upgrade {
-	
+public class Weapon {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private int id;
-	
-	@Column(name = "name", nullable = false)
 	private String name;
-	
-	@Column(name = "description", nullable = false)
-	private String description;
-	
-	@Column(name = "effect", nullable = false)
-	private String effect;
-	
-	@ManyToMany(mappedBy = "upgrades")
-	private User user;
-	
+	private String category;
+	@Column(name = "base_damage")
+	private String baseDamage;
+	@ManyToMany(mappedBy = "weapons")
+	private Set<User> users;
 }

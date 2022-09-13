@@ -16,9 +16,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.spicyjello.dndbattleappbe.model.User;
 import com.spicyjello.dndbattleappbe.service.UserService;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
+	@NoArgsConstructor
+	@AllArgsConstructor
+	@Getter
+	@Setter
+	private static class LoginInfo {
+		String username;
+		String password;
+	};
 	@Autowired
 	private UserService userService;
 	@PostMapping
@@ -48,6 +61,10 @@ public class UserController {
 			notFoundUser.setName("User not found");
 			return notFoundUser;
 		}
+	}
+	@PostMapping("login")
+	public User getUserByValidation(@RequestBody LoginInfo loginInfo) {
+		return userService.getUserByValidation(loginInfo.getUsername(), loginInfo.getPassword());
 	}
 	@PutMapping
 	public User updateUser(@RequestBody User updatedUser) {

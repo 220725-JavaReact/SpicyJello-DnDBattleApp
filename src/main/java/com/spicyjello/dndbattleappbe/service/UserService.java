@@ -29,15 +29,24 @@ public class UserService {
 	public Optional<User> getUserByUsername(String username) {
 		return userRepo.findByUsername(username);
 	}
+	public User getUserByValidation(String username, String password) {
+		User user = new User();
+		Optional<User> foundUser = getUserByUsername(username);
+		if (foundUser.isPresent()) {
+			if (passwordFactory.matchPassword(password, foundUser.get().getPassword())) user = foundUser.get();
+			else user.setName("Incorrect password");
+		} else user.setName("User not found");
+		return user;
+	}
 	public User updateUser(User updatedUser) {
 		Optional<User> foundUser = getUserById(updatedUser.getId());
 		if (foundUser.isPresent()) {
 			if (!updatedUser.getPassword().equals(foundUser.get().getPassword())) updatedUser.setPassword(passwordFactory.encodePassword(updatedUser.getPassword()));
 			return userRepo.save(updatedUser);
 		} else {
-			User notUpdatedUser = new User();
-			notUpdatedUser.setName("User not updated");
-			return notUpdatedUser;
+			User notFoundUser = new User();
+			notFoundUser.setName("User not found");
+			return notFoundUser;
 		}
 	}
 	public Boolean deleteUserById(int id) {

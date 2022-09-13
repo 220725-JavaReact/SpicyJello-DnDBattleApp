@@ -1,10 +1,10 @@
-package com.spicyjello.dndbattleapp;
+package com.spicyjello.dndbattleappbe;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DndBattleeAppBeApplicationTests {
+class DndbattleappbeApplicationTests {
 
 	@Test
 	void contextLoads() {

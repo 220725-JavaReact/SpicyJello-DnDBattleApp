@@ -1,6 +1,4 @@
-package com.spicyjello.dndbattleapp.model;
-
-
+package com.spicyjello.dndbattleappbe.model;
 
 import java.util.Set;
 
@@ -12,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import antlr.collections.List;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -21,7 +18,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="weapons")
+@Table(name = "weapons")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -29,21 +26,13 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public class Weapon {
-
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="name", nullable = false)
 	private String name;
-	
-	@Column(name="category", nullable= false)
 	private String category;
-	
-	@Column(name="base_damage", nullable= false)
+	@Column(name = "base_damage")
 	private String baseDamage;
-	
-	@ManyToMany(mappedBy="weapons")
+	@ManyToMany(mappedBy = "weapons")
 	private Set<User> users;
 }

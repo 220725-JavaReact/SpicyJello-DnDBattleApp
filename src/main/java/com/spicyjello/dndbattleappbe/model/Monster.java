@@ -1,6 +1,5 @@
-package com.spicyjello.dndbattleapp.model;
+package com.spicyjello.dndbattleappbe.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,31 +17,20 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="upgrades")
+@Table(name = "monsters")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
-public class Upgrade {
-	
+public class Monster {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="name", nullable = false)
-	private String name;
-	
-	@Column(name="description", nullable = false)
-	private String description;
-	
-	@Column(name="effect", nullable = false)
-	private String effect;
-	
-	@ManyToOne (fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id")
-	//@Column(name="user_id", nullable = false)
-	private User user;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "game_id")
+	private Game game;
+	private String source;
+	private String modifier;
 }

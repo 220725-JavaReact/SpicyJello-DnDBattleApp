@@ -1,5 +1,6 @@
 package com.spicyjello.dndbattleappbe;
 
+import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.assertj.core.util.Arrays;
+import org.hibernate.annotations.NotFound;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

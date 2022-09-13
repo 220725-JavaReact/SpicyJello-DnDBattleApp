@@ -1,4 +1,4 @@
-package com.spicyjello.dndbattleapp;
+package com.spicyjello.dndbattleappbe;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -17,9 +17,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.spicyjello.dndbattleapp.dao.UserRepository;
-import com.spicyjello.dndbattleapp.model.User;
-import com.spicyjello.dndbattleapp.service.UserService;
+import com.spicyjello.dndbattleappbe.data.UserRepository;
+import com.spicyjello.dndbattleappbe.model.User;
+import com.spicyjello.dndbattleappbe.service.UserService;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceTest {
@@ -39,9 +39,10 @@ class UserServiceTest {
 	
 	@BeforeEach
 	public void init() {
-		user = new User(1,"Tom", "Salta", null, null, 1, null, null );
-		user1 = new User(2, "John", "Constantine", null, null, 2, null, null);
-		user2 = new User(3, "J'onn", "J'onzz", null, null, 2, null, null);
+		
+		user = new User(1,"Tom", "Salta", null, null, 1, null, null, null );
+		user1 = new User(2, "John", "Constantine", null, null, 2, null, null, null);
+		user2 = new User(3, "J'onn", "J'onzz", null, null, 2, null, null, null);
 		users1 = new ArrayList<>();
 		users1.add(user);
 		users1.add(user1);
@@ -56,7 +57,7 @@ class UserServiceTest {
 		
 		when(mockUserRepo.save(user)).thenReturn(user);
 		
-		User actual = userService.createUser(user);
+		User actual = userService.addUser(user);
 		
 		Assertions.assertEquals(user, actual);
 	}

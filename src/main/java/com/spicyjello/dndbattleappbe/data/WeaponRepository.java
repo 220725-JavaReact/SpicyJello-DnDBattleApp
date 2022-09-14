@@ -9,5 +9,5 @@ import com.spicyjello.dndbattleappbe.model.Weapon;
 
 @Repository
 public interface WeaponRepository extends JpaRepository<Weapon, Integer> {
-	public List<Weapon> findAllByUserId(int userId);
+	public List<Weapon> findAllByUsers_Id(int userId);
 }

@@ -9,5 +9,5 @@ import com.spicyjello.dndbattleappbe.model.Game;
 
 @Repository
 public interface GameRepository extends JpaRepository<Game, Integer> {
-	public List<Game> findAllByUserId(int userId);
+	public List<Game> findAllByUser_Id(int userId);
 }

@@ -9,5 +9,5 @@ import com.spicyjello.dndbattleappbe.model.Monster;
 
 @Repository
 public interface MonsterRepository extends JpaRepository<Monster, Integer> {
-	public List<Monster> findAllByGameId(int gameId);
+	public List<Monster> findAllByGame_Id(int gameId);
 }

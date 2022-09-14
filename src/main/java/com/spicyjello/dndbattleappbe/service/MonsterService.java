@@ -20,7 +20,7 @@ public class MonsterService {
 		return monsterRepo.findAll();
 	}
 	public List<Monster> getAllMonstersByGameId(int id) {
-		return monsterRepo.findAllByGameId(id);
+		return monsterRepo.findAllByGame_Id(id);
 	}
 	public Optional<Monster> getMonsterById(int id) {
 		return monsterRepo.findById(id);

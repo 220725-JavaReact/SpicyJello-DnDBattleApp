@@ -20,7 +20,7 @@ public class GameService {
 		return gameRepo.findAll();
 	}
 	public List<Game> getAllGamesByUserId(int id) {
-		return gameRepo.findAllByUserId(id);
+		return gameRepo.findAllByUser_Id(id);
 	}
 	public Optional<Game> getGameById(int id) {
 		return gameRepo.findById(id);

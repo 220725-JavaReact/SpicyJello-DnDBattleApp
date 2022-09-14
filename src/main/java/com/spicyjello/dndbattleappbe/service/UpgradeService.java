@@ -20,7 +20,7 @@ public class UpgradeService {
 		return upgradeRepo.findAll();
 	}
 	public List<Upgrade> getAllUpgradesByUserId(int id) {
-		return upgradeRepo.findAllByUserId(id);
+		return upgradeRepo.findAllByUsers_Id(id);
 	}
 	public Optional<Upgrade> getUpgradeById(int id) {
 		return upgradeRepo.findById(id);

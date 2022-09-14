@@ -20,7 +20,7 @@ public class WeaponService {
 		return weaponRepo.findAll();
 	}
 	public List<Weapon> getAllWeaponsByUserId(int id) {
-		return weaponRepo.findAllByUserId(id);
+		return weaponRepo.findAllByUsers_Id(id);
 	}
 	public Optional<Weapon> getWeaponById(int id) {
 		return weaponRepo.findById(id);

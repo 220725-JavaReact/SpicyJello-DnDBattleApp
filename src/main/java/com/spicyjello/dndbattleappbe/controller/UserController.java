@@ -42,25 +42,19 @@ public class UserController {
 	public List<User> getAllUsers() {
 		return userService.getAllUsers();
 	}
-	@GetMapping("/id/{id}")
-	public User getUserById(@PathVariable String id) {
-		Optional<User> foundUser = userService.getUserById(Integer.parseInt(id));
-		if (foundUser.isPresent()) return foundUser.get();
-		else {
-			User notFoundUser = new User();
-			notFoundUser.setName("User not found");
-			return notFoundUser;
+	@GetMapping("{identifier}")
+	public User getUserByIdentifier(@PathVariable String identifier) {
+		User user = new User();
+		if (identifier.matches("^\\d+$")) {
+			Optional<User> foundUser = userService.getUserById(Integer.parseInt(identifier));
+			if (foundUser.isPresent()) user = foundUser.get();
+			else user.setName("User not found");
+		} else {
+			Optional<User> foundUser = userService.getUserByUsername(identifier);
+			if (foundUser.isPresent()) user = foundUser.get();
+			else user.setName("User not found");
 		}
-	}
-	@GetMapping("/username/{username}")
-	public User getUserByUsername(@PathVariable String username) {
-		Optional<User> foundUser = userService.getUserByUsername(username);
-		if (foundUser.isPresent()) return foundUser.get();
-		else {
-			User notFoundUser = new User();
-			notFoundUser.setName("User not found");
-			return notFoundUser;
-		}
+		return user;
 	}
 	@PostMapping("login")
 	public User getUserByValidation(@RequestBody LoginInfo loginInfo) {
@@ -70,7 +64,7 @@ public class UserController {
 	public User updateUser(@RequestBody User updatedUser) {
 		return userService.updateUser(updatedUser);
 	}
-	@DeleteMapping("/id/{id}")
+	@DeleteMapping("{id}")
 	public Boolean deleteUserById(@PathVariable String id) {
 		return userService.deleteUserById(Integer.parseInt(id));
 	}

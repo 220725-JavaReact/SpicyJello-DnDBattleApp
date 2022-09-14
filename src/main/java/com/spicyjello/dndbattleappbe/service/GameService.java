@@ -19,8 +19,16 @@ public class GameService {
 	public List<Game> getAllGames() {
 		return gameRepo.findAll();
 	}
+	public List<Game> getAllGamesByUserId(int id) {
+		return gameRepo.findAllByUserId(id);
+	}
 	public Optional<Game> getGameById(int id) {
 		return gameRepo.findById(id);
+	}
+	public Game updateGame(Game updatedGame) {
+		Optional<Game> foundGame = getGameById(updatedGame.getId());
+		if (foundGame.isPresent()) return gameRepo.save(updatedGame);
+		else return new Game();
 	}
 	public Boolean deleteGameById(int id) {
 		gameRepo.deleteById(id);

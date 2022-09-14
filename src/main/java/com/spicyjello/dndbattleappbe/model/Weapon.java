@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -25,6 +28,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @EqualsAndHashCode
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Weapon {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +37,8 @@ public class Weapon {
 	private String category;
 	@Column(name = "base_damage")
 	private String baseDamage;
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@ManyToMany(mappedBy = "weapons")
 	private Set<User> users;
 }

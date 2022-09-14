@@ -5,9 +5,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "akalink-patch" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "akalink-patch" ]
+    branches: [ "main" ]
 
 jobs:
   build:

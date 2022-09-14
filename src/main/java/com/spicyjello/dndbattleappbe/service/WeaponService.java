@@ -19,8 +19,20 @@ public class WeaponService {
 	public List<Weapon> getAllWeapons() {
 		return weaponRepo.findAll();
 	}
-	public Optional<Weapon> getWeaponsById(int id) {
+	public List<Weapon> getAllWeaponsByUserId(int id) {
+		return weaponRepo.findAllByUsers_Id(id);
+	}
+	public Optional<Weapon> getWeaponById(int id) {
 		return weaponRepo.findById(id);
+	}
+	public Weapon updateWeapon(Weapon updatedWeapon) {
+		Optional<Weapon> foundWeapon = getWeaponById(updatedWeapon.getId());
+		if (foundWeapon.isPresent()) return foundWeapon.get();
+		else {
+			Weapon notFoundWeapon = new Weapon();
+			notFoundWeapon.setName("Weapon not found");
+			return notFoundWeapon;
+		}
 	}
 	public Boolean deleteWeaponById(int id) {
 		weaponRepo.deleteById(id);

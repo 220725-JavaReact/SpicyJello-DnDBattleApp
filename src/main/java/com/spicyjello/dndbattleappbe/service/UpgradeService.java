@@ -19,8 +19,20 @@ public class UpgradeService {
 	public List<Upgrade> getAllUpgrades() {
 		return upgradeRepo.findAll();
 	}
+	public List<Upgrade> getAllUpgradesByUserId(int id) {
+		return upgradeRepo.findAllByUserId(id);
+	}
 	public Optional<Upgrade> getUpgradeById(int id) {
 		return upgradeRepo.findById(id);
+	}
+	public Upgrade updateUpgrade(Upgrade updatedUpgrade) {
+		Optional<Upgrade> foundUpgrade = getUpgradeById(updatedUpgrade.getId());
+		if (foundUpgrade.isPresent()) return foundUpgrade.get();
+		else {
+			Upgrade notFoundUpgrade = new Upgrade();
+			notFoundUpgrade.setName("Upgrade not found");
+			return notFoundUpgrade;
+		}
 	}
 	public Boolean deleteUpgradeById(int id) {
 		upgradeRepo.deleteById(id);

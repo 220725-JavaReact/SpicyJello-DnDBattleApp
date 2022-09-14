@@ -19,8 +19,16 @@ public class MonsterService {
 	public List<Monster> getAllMonsters() {
 		return monsterRepo.findAll();
 	}
+	public List<Monster> getAllMonstersByGameId(int id) {
+		return monsterRepo.findAllByGameId(id);
+	}
 	public Optional<Monster> getMonsterById(int id) {
 		return monsterRepo.findById(id);
+	}
+	public Monster updateMonster(Monster updatedMonster) {
+		Optional<Monster> foundMonster = getMonsterById(updatedMonster.getId());
+		if (foundMonster.isPresent()) return monsterRepo.save(updatedMonster);
+		else return new Monster();
 	}
 	public Boolean deleteMonsterById(int id) {
 		monsterRepo.deleteById(id);

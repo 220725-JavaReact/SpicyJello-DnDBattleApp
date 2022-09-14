@@ -13,6 +13,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -28,6 +32,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @EqualsAndHashCode
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,8 +42,13 @@ public class User {
 	private String username;
 	private String password;
 	private int gold;
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	@JsonManagedReference
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	private Set<Game> games;
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@ManyToMany
 	@JoinTable(
 		name = "user_upgrades",
@@ -46,6 +56,8 @@ public class User {
 		inverseJoinColumns = @JoinColumn(name = "upgrade_id")
 	)
 	private Set<Upgrade> upgrades;
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@ManyToMany
 	@JoinTable(
 		name = "user_weapons",

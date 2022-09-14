@@ -5,7 +5,7 @@ Developed by:
 - Garrett McPherson
 - Wint Kay Thwe Aung
 
-Link to front-end repo (Coming soon)
+[Link to frontend repo](https://github.com/220725-JavaReact/SpicyJello-DnDBattleApp-Frontend)
 
 # Description
 DnDBattleApp is a web game where players can choose from among a selection of budding adventurers to face waves of enemies provided by the [D&D 5e API](https://www.dnd5eapi.co/). Players receive rewards for each playthrough and the playthrough's data is saved.

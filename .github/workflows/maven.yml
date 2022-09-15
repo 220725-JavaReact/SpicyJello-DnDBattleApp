@@ -8,7 +8,7 @@ on:
   workflow_dispatch: {}
 
 env:
-  
+  applicationfolder: DndBattleeAppBE
   AWS_REGION: us-east-1
   S3BUCKET: dnd-battle-be-webappdeploymentbucket-zgef6kg0vss9
 
@@ -18,7 +18,7 @@ jobs:
 
 
     name: Build and Package
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: read

@@ -8,7 +8,7 @@ on:
   workflow_dispatch: {}
 
 env:
-  
+  applicationfolder: DndBattleeAppBE
   AWS_REGION: us-east-1
   S3BUCKET: dnd-battle-be-webappdeploymentbucket-zgef6kg0vss9
 

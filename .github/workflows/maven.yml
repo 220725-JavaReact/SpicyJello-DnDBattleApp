@@ -8,27 +8,14 @@ on:
   workflow_dispatch: {}
 
 env:
-  applicationfolder: DndBattleAppBE
+  
   AWS_REGION: us-east-1
   S3BUCKET: dnd-battle-be-webappdeploymentbucket-zgef6kg0vss9
 
 
 jobs:
   build:
-    
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 8
-      uses: actions/setup-java@v3
-      with:
-        java-version: '8'
-        distribution: 'temurin'
-        cache: maven
-    - name: Build with Maven
-    run: mvn -B package --file pom.xml
 
     name: Build and Package
     runs-on: ubuntu-20.04

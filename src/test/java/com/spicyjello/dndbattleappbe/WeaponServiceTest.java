@@ -70,7 +70,7 @@ class WeaponServiceTest {
 		
 		when(mockWeaponRepo.findById(2)).thenReturn(oWeapon);
 		
-		Optional<Weapon> actual = weaponService.getWeaponsById(2);
+		Optional<Weapon> actual = weaponService.getWeaponById(2);
 		
 		Assertions.assertEquals(oWeapon, actual);
 	}

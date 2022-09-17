@@ -52,16 +52,16 @@ class UserServiceTest {
 		users2.add(user2);
 	}
 
-	/*@Test
+	@Test
 	void CreateUser_Pass() {
 		
-		when(mockPasswordFactory.encodePassword("aad")).thenReturn("word");
+		when(mockPasswordFactory.encodePassword("word")).thenReturn(user.getPassword());
 		when(mockUserRepo.save(user)).thenReturn(user);
 		
 		User actual = userService.addUser(user);
 		System.out.println(actual);
 		Assertions.assertEquals(user, actual);
-	}*/
+	}
 	
 	@Test
 	void GetAllUsers_Pass() {
@@ -82,6 +82,18 @@ class UserServiceTest {
 		Optional<User> actual = userService.getUserById(1);
 		
 		Assertions.assertEquals(oUser, actual);
+	}
+	
+	@Test
+	void GetUserUsername_Pass() { //also tests get user by username
+		Optional<User> oUser = Optional.ofNullable(user);
+		
+		when(mockUserRepo.findByUsername(user.getUsername())).thenReturn(oUser);
+		when(mockPasswordFactory.matchPassword(user.getPassword(), user.getPassword())).thenReturn(true);
+		//above call need to be mocked because it compares hashed pw from db
+		User actual = userService.getUserByValidation(user.getUsername(), "word");
+		
+		Assertions.assertEquals(user, actual);
 	}
 	
 

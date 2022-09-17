@@ -5,7 +5,7 @@ phases:
     commands:
       - echo "Building a .war file"
       - java -version
-      - mvn clean package
+      - mvn clean install
 
 artifacts:
   files:

@@ -1,4 +1,6 @@
 # SpicyJello-DnDBattleApp
+[Link to app](http://sjp2react-env.eba-2b275ndm.us-east-1.elasticbeanstalk.com/)
+
 Developed by:
 - Warren Lee (Team Lead)
 - Erick Cilia
@@ -24,6 +26,7 @@ DnDBattleApp is a web game where players can choose from among a selection of bu
 - Players can view a global leaderboard
   
 ## Technologies Used
+### Backend
 - Java 8
 - JUnit
 - Lombok
@@ -32,3 +35,15 @@ DnDBattleApp is a web game where players can choose from among a selection of bu
 - Spring Data
 - Spring Security
 - Spring Web
+### Frontend
+- React
+- Fetch API
+- Axios
+- Redux
+- Typescript
+- nodeJS 
+### Dev Ops
+- AWS
+- AWS CloudFormation
+- Docker
+- Github Action

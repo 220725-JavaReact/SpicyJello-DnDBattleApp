@@ -61,7 +61,6 @@ class UserServiceTest {
 		User actual = userService.addUser(user);
 		System.out.println(actual);
 		Assertions.assertEquals(user, actual);
-	}
 	
 	@Test
 	void GetAllUsers_Pass() {
@@ -95,6 +94,5 @@ class UserServiceTest {
 		
 		Assertions.assertEquals(user, actual);
 	}
-	
 
 }
